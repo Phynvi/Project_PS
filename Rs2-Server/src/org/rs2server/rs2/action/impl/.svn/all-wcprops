@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/action/impl
+END
+NPCHarvestingAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/action/impl/NPCHarvestingAction.java
+END
+HarvestingAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/action/impl/HarvestingAction.java
+END
+ProductionAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/action/impl/ProductionAction.java
+END
+CoordinateAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/action/impl/CoordinateAction.java
+END
+ObjectHarvestingAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/action/impl/ObjectHarvestingAction.java
+END
+ConsumeItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/action/impl/ConsumeItemAction.java
+END
+WieldItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/action/impl/WieldItemAction.java
+END

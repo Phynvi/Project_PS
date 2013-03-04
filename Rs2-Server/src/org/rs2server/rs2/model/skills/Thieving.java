@@ -1,0 +1,405 @@
+package org.rs2server.rs2.model.skills;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.rs2server.rs2.Constants;
+
+import org.rs2server.rs2.clipping.TileControl;
+import org.rs2server.rs2.event.Event;
+import org.rs2server.rs2.model.*;
+import org.rs2server.rs2.model.Mob.InteractionMode;
+import org.rs2server.rs2.tickable.Tickable;
+import org.rs2server.util.Misc;
+
+/**
+ * 
+ * @author Killamess
+ * 
+ */
+public class Thieving {
+
+	public static enum NPCs {
+
+		MAN(new String[] { "man", "woman" }, 1, 8,
+				new Item[] { new Item(995, 3) }, 5, 1), FARMER(
+				new String[] { "farmer" }, 10, 15, new Item[] {
+						new Item(995, 9), new Item(5318, 4) }, 5, 1), WARRIOR(
+				new String[] { "warrior woman", "al-kharid warrior" }, 25, 26,
+				new Item[] { new Item(995, 18) }, 5, 2), ROGUE(
+				new String[] { "rogue" }, 32, 36, new Item[] {
+						new Item(995, 25), new Item(995, 40),
+						new Item(7919, 1), new Item(556, 6), new Item(5686, 1),
+						new Item(1523, 1), new Item(1944, 1) }, 5, 2), GUARD(
+				new String[] { "guard" }, 40, 47,
+				new Item[] { new Item(995, 30) }, 5, 2), GNOME(
+				new String[] { "gnome" }, 75, 199,
+				new Item[] { new Item(995, 300), new Item(557, 1),
+						new Item(444, 1), new Item(569, 1), new Item(2150, 1),
+						new Item(2162, 1) }, 5, 1);
+
+		private String npcName;
+		private String[] npcNames;
+		private int levelReq;
+		private int experience;
+		private Item[] loot;
+		private int stunTime;
+		private int stunDamage;
+
+		private NPCs(String[] npcNames, int levelReq, int experience,
+				Item[] loot, int stunTime, int stunDamage) {
+			this.npcNames = npcNames;
+			this.levelReq = levelReq;
+			this.experience = experience;
+			this.loot = loot;
+			this.stunTime = stunTime;
+			this.stunDamage = stunDamage;
+		}
+
+		public int getExperience() {
+			return experience;
+		}
+
+		public int getLevelReq() {
+			return levelReq;
+		}
+
+		public Item[] getLoot() {
+			return loot;
+		}
+
+		public String[] getNpcNames() {
+			return npcNames;
+		}
+
+		public int getStunDamage() {
+			return stunDamage;
+		}
+
+		public int getStunTime() {
+			return stunTime;
+		}
+	}
+
+	public static enum Stalls {
+
+		BAKERS_STALL(2561, 1, 20, new int[] { 1891, 1897, 2309 }), SILK_STALL(
+				2560, 25, 40, new int[] { 950 }), FUR_STALL(2563, 35, 65,
+				new int[] { 948 }), FUR_STALL2(4278, 35, 65, new int[] { 948 }), SLIVER_STALL(
+				2565, 40, 80, new int[] { 422, 2355 }), FISH_STALL(4277, 42,
+				42, new int[] { 317, 321, 335, 331 }), SPICE_STALL(2564, 65,
+				100, new int[] { 249, 251, 253, 255 }), // ,257,259,261,263,265,267,269,2998,3000}),
+		GEM_STALL(2562, 75, 150, new int[] { 1625, 1627, 1629, 1623, 1621,
+				1619, 1617 });
+		/**
+		 * Gets stall information
+		 * 
+		 * @param objectId
+		 *            The object id
+		 * @return The Stall, or <code>null</code> if the object is not a Stall
+		 */
+		public static Stalls forId(int objectId) {
+			return stalls.get(objectId);
+		}
+
+		/**
+		 * The id
+		 */
+		private int id;
+		/**
+		 * The level required.
+		 */
+		private int levelRequired;
+		/**
+		 * The experience granted.
+		 */
+		private int experience;
+
+		/**
+		 * The possible items looted
+		 */
+		private int[] loot;
+
+		/**
+		 * Populates the stall map.
+		 */
+		static {
+			for (Stalls stall : Stalls.values()) {
+				stalls.put(stall.id, stall);
+			}
+		}
+
+		private Stalls(int id, int levelRequired, int experience,
+				int[] possibleLoots) {
+			this.id = id;
+			this.levelRequired = levelRequired;
+			this.experience = experience;
+			this.loot = possibleLoots;
+		}
+
+		/**
+		 * @return the experience
+		 */
+		public int getExperience() {
+			return experience;
+		}
+
+		/**
+		 * @return the id
+		 */
+		public int getId() {
+			return id;
+		}
+
+		/**
+		 * @return the levelRequired
+		 */
+		public int getLevelRequired() {
+			return levelRequired;
+		}
+
+		/**
+		 * @return 1 possible loot
+		 */
+		public int[] getLoot() {
+			return loot;
+		}
+	}
+
+	private static Thieving singleton = null;
+	/**
+	 * The players final pickpocket animation
+	 */
+	private static final Animation PICKPOCKET_ANIM = Animation.create(881);
+
+	/**
+	 * The players final stunned graphic
+	 */
+	private static final Graphic STUNNED = Graphic.create(80, (100 << 16));
+
+	/**
+	 * A map of stalls
+	 */
+	private static Map<Integer, Stalls> stalls = new HashMap<Integer, Stalls>();
+
+	public static Thieving getSingleton() {
+		if (singleton == null) {
+			singleton = new Thieving();
+		}
+		return singleton;
+	}
+
+	public boolean stallAction(final Player player, final int stallId,
+			final GameObject obj) {
+
+		if (Stalls.forId(stallId) == null) {
+			return false;
+		}
+		if (TileControl.calculateDistance(player.getCentreLocation(),
+				obj.getCentreLocation()) > 2
+				|| player.getAttribute("busy") != null) {
+			return true;
+
+		} else {
+			player.face(player.getLocation().oppositeTileOfEntity(obj));
+			player.getAttributes().put("busy", true);
+
+			World.getWorld().submit(new Tickable(4) {
+
+				@Override
+				public void execute() {
+					player.removeAttribute("busy");
+					this.stop();
+				}
+			});
+		}
+
+		if (player.getSkills().getLevel(Skills.THIEVING) < Stalls
+				.forId(stallId).getLevelRequired()) {
+			player.getActionSender().sendMessage(
+					"You need a Thieving level of "
+							+ Stalls.forId(stallId).getLevelRequired()
+							+ " to steal from this stall.");
+			return true;
+		}
+		if (player.getInventory().freeSlots() < 1) {
+			player.getActionSender().sendMessage(
+					"You do not have enough room in your inventory.");
+			return true;
+		}
+		int randomSlot = Misc.random(Stalls.forId(stallId).getLoot().length);
+		if (randomSlot == 0) {
+			randomSlot = 1;
+		}
+		Item itemObtained = new Item(
+				Stalls.forId(stallId).getLoot()[randomSlot - 1]);
+		player.getInventory().add(itemObtained);
+		player.playAnimation(Animation.create(881));
+		player.getSkills().addExperience(Skills.THIEVING,
+				Stalls.forId(stallId).getExperience());
+		player.getActionSender().sendMessage(
+				"You managed to steal some "
+						+ itemObtained.getDefinition().getName().toLowerCase()
+						+ ".");
+		return true;
+	}
+
+	/**
+	 * The thieving npc method
+	 * 
+	 * @param player
+	 *            instance of player
+	 * @param n
+	 *            the instance of npc - the npc we're pickpocketing
+	 */
+	public void thieveNpc(final Player player, final NPC n) {
+		/**
+		 * The npc name
+		 */
+		String npcName = n.getDefinition().getName();
+		/**
+		 * If the npc doesn't have a name it means it doesn't exist so we can't
+		 * continue
+		 */
+		if (npcName == null) {
+			return;
+		}
+
+		NPCs npc = null;
+
+		/**
+		 * Loop through the array and get the correct npc
+		 */
+		for (NPCs npcs : NPCs.values()) {
+			for (int l = 0; l < npcs.getNpcNames().length; l++) {
+				if (npcName.equalsIgnoreCase(npcs.getNpcNames()[l])) {
+					npc = npcs;
+					break;
+				}
+			}
+		}
+		if (npc == null) {
+			return;
+		}
+		/**
+		 * Player's required theiving level
+		 */
+		if (npc.getLevelReq() > player.getSkills().getLevel(Skills.THIEVING)) {
+			return;
+		}
+		/**
+		 * Player could already be stunned which means he cannot pickpocket
+		 */
+		if (player.getAttribute("stunned") != null) {
+			player.getActionSender().sendMessage("You're stunned!");
+			return;
+		}
+		int timer = 0;
+		if (player.getAttribute("thievingTimer") != null) {
+			timer = (Integer) player.getAttribute("thievingTimer");
+		}
+		if (timer > 0) {
+			return;
+		}
+		/**
+		 * Player the animation and face the npc, inform player on action.
+		 */
+		player.playAnimation(PICKPOCKET_ANIM);
+		player.face(n.getLocation());
+		player.getActionSender().sendMessage(
+				"You attempt to pick the " + npcName.toLowerCase()
+						+ "'s pocket.");
+
+		/**
+		 * Here we set the final variables for the possible loot
+		 */
+		final int slot = Misc.random(npc.getLoot().length - 1);
+		final Item item = npc.getLoot()[slot];
+
+		/**
+		 * The chance of failing
+		 */
+		final boolean fail = Misc.random(player.getSkills().getLevel(
+				Skills.THIEVING)) < Misc.random(npc.getLevelReq() == 1 ? 3
+				: npc.getLevelReq());
+
+		final NPCs npc2 = npc;
+		World.getWorld().submit(new Event(1500) {
+
+			@Override
+			public void execute() {
+				if (fail) {
+					String name;
+					if (!n.getDefinition().getName().toLowerCase()
+							.equals("man")) {
+						name = n.getDefinition().getName().toLowerCase();
+					} else {
+						name = "fellow";
+					}
+
+					/**
+					 * TODO: Master farmer
+					 */
+					n.forceChat("What do you think you're doing?!");
+					if (n.getCombatDefinition() != null) {
+						n.playAnimation(n.getAttackAnimation());
+					} else {
+						n.playAnimation(Animation.create(422));
+					}
+					n.setInteractingEntity(InteractionMode.TALK, player);
+					/**
+					 * Inform player
+					 */
+					// player.getActionSender().sendMessage("You are stunned!");
+					player.getActionSender().sendMessage(
+							"You fail to pick the " + name + "'s pocket.");
+					/**
+					 * Player graphics
+					 */
+					player.playGraphics(STUNNED);
+					/**
+					 * Hit the player
+					 */
+					player.inflictDamage(new Hit(npc2.getStunDamage()), null);
+					/**
+					 * Player is now stunned and cannot walk
+					 */
+					player.getCombatState().setCanMove(false);
+					player.setAttribute("stunned", player);
+					/**
+					 * In specific time player can walk again
+					 */
+					World.getWorld().submit(
+							new Event(npc2.getStunTime() * 1000) {
+
+								@Override
+								public void execute() {
+									/**
+									 * Player now can walk
+									 */
+									player.getCombatState().setCanMove(true);
+									/**
+									 * Player isn't stunned
+									 */
+									player.removeAttribute("stunned");
+									this.stop();
+								}
+							});
+				} else {
+					/**
+					 * Inform player, add item, and experience
+					 */
+					player.getActionSender().sendMessage(
+							"You pick the "
+									+ n.getDefinition().getName().toLowerCase()
+									+ "'s pocket.");
+					player.getInventory().add(item);
+					player.getSkills().addExperience(Skills.THIEVING,
+							npc2.getExperience() * Constants.getExpModifier());
+					player.setAttribute("thievingTimer", 3);
+				}
+				this.stop();
+			}
+		});
+	}
+
+}

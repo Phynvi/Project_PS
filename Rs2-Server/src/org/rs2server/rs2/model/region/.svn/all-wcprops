@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/region
+END
+Tile.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/region/Tile.java
+END
+RegionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/region/RegionManager.java
+END
+RegionCoordinates.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/region/RegionCoordinates.java
+END
+Region.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/region/Region.java
+END

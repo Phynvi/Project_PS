@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/util/login
+END
+LoginCodecFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/util/login/LoginCodecFactory.java
+END
+LoginDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/util/login/LoginDecoder.java
+END
+LoginEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/util/login/LoginEncoder.java
+END
+LoginPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/util/login/LoginPacket.java
+END

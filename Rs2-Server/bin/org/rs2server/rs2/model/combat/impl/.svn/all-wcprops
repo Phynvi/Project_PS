@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/impl
+END
+MeleeCombatAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/impl/MeleeCombatAction.java
+END
+AbstractCombatAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/impl/AbstractCombatAction.java
+END
+MagicCombatAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/impl/MagicCombatAction.java
+END
+RangeCombatAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/impl/RangeCombatAction.java
+END

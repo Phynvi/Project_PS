@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task
+END
+ConsecutiveTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/ConsecutiveTask.java
+END
+ParallelTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/ParallelTask.java
+END
+Task.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/Task.java
+END

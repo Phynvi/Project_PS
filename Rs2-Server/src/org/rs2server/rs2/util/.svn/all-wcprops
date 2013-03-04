@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/util
+END
+EntityListIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/util/EntityListIterator.java
+END
+IoBufferUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/util/IoBufferUtils.java
+END
+NameUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/util/NameUtils.java
+END
+ConfigurationParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/util/ConfigurationParser.java
+END
+TextUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/util/TextUtils.java
+END
+DirectionUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/util/DirectionUtils.java
+END
+EntityList.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/util/EntityList.java
+END

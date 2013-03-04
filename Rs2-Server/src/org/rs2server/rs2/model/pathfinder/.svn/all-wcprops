@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/pathfinder
+END
+PathFinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/pathfinder/PathFinder.java
+END
+DumbPathFinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/pathfinder/DumbPathFinder.java
+END

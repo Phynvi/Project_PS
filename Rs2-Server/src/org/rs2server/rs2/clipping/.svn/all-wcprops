@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/clipping
+END
+TileControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/clipping/TileControl.java
+END
+ByteStreamExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/clipping/ByteStreamExt.java
+END
+ByteStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/clipping/ByteStream.java
+END
+ObjectDef.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/clipping/ObjectDef.java
+END
+RegionClipping.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/clipping/RegionClipping.java
+END
+MemoryArchive.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/clipping/MemoryArchive.java
+END

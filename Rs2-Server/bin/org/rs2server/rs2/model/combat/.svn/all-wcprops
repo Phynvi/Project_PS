@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat
+END
+AttackAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/AttackAction.java
+END
+CombatState.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/CombatState.java
+END
+DamageMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/DamageMap.java
+END
+CombatConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/CombatConstants.java
+END
+CombatAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/CombatAction.java
+END
+CombatFormulae.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/CombatFormulae.java
+END
+TotalDamage.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/combat/TotalDamage.java
+END

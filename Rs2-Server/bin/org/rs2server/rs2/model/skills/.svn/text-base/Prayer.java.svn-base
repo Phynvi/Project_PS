@@ -1,0 +1,131 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package org.rs2server.rs2.model.skills;
+
+import org.rs2server.rs2.action.impl.ProductionAction;
+import org.rs2server.rs2.model.Animation;
+import org.rs2server.rs2.model.Graphic;
+import org.rs2server.rs2.model.Item;
+import org.rs2server.rs2.model.Mob;
+import org.rs2server.rs2.model.Skills;
+import org.rs2server.rs2.model.Sound;
+
+/**
+ *
+ * @author Stephen Soltys
+ */
+public class Prayer extends ProductionAction {
+
+    private Bone bone;
+
+    public Prayer(Mob mob, Bone bone) {
+        super(mob);
+        this.bone = bone;
+    }
+
+    public enum Bone {
+
+        BONES(new Item(526), 5),
+        WOLF_BONES(new Item(2859), 5),
+        BIG_BONES(new Item(532), 15),
+        BABY_DRAGON_BONES(new Item(534), 30),
+        DRAGON_BONES(new Item(536), 72);
+        Item bone;
+        double exp;
+
+        Bone(Item bone, double exp) {
+            this.bone = bone;
+            this.exp = exp;
+        }
+
+        Item getBone() {
+            return bone;
+        }
+
+        double getExp() {
+            return exp;
+        }
+    }
+
+    public static Bone getBoneForId(int id) {
+        switch (id) {
+            case 526:
+                return Bone.BONES;
+            case 2859:
+                return Bone.WOLF_BONES;
+            case 532:
+                return Bone.BIG_BONES;
+            case 534:
+                return Bone.BABY_DRAGON_BONES;
+            case 536:
+                return Bone.DRAGON_BONES;
+        }
+        return null;
+    }
+
+    @Override
+    public int getCycleCount() {
+        return 1;
+    }
+
+    @Override
+    public int getProductionCount() {
+        return 1;
+    }
+
+    @Override
+    public Item[] getRewards() {
+        return new Item[]{};
+    }
+
+    @Override
+    public Item[] getConsumedItems() {
+        return new Item[]{bone.getBone()};
+    }
+
+    @Override
+    public int getSkill() {
+        return Skills.PRAYER;
+    }
+
+    @Override
+    public int getRequiredLevel() {
+        return 1;
+    }
+
+    @Override
+    public double getExperience() {
+        return bone.getExp();
+    }
+
+    @Override
+    public String getLevelTooLowMessage() {
+        return "";
+    }
+
+    @Override
+    public String getSuccessfulProductionMessage() {
+        return "You bury the bones.";
+    }
+    @Override
+    public Sound getSound() {
+        return Sound.create(2738, (byte) 1, 0);
+    }
+
+    @Override
+    public Animation getAnimation() {
+        return Animation.create(827);
+    }
+
+    @Override
+    public Graphic getGraphic() {
+        return null;
+    }
+
+    @Override
+    public boolean canProduce() {
+        return true;
+    }
+}

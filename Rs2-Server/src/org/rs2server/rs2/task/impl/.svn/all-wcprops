@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl
+END
+NPCUpdateTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/NPCUpdateTask.java
+END
+PlayerUpdateTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/PlayerUpdateTask.java
+END
+CleanupTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/CleanupTask.java
+END
+DeathTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/DeathTask.java
+END
+SessionLoginTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/SessionLoginTask.java
+END
+SessionClosedTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/SessionClosedTask.java
+END
+SessionMessageTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/SessionMessageTask.java
+END
+SessionOpenedTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/SessionOpenedTask.java
+END
+NPCResetTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/NPCResetTask.java
+END
+NPCTickTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/NPCTickTask.java
+END
+PlayerResetTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/PlayerResetTask.java
+END
+PlayerTickTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/PlayerTickTask.java
+END
+BenchmarkTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/task/impl/BenchmarkTask.java
+END

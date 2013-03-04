@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/container
+END
+Equipment.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/container/Equipment.java
+END
+Bank.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/container/Bank.java
+END
+Inventory.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/container/Inventory.java
+END
+ContainerListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/container/ContainerListener.java
+END
+Trade.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/container/Trade.java
+END
+Container.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/project-destiny-474/!svn/ver/4/pd/src/org/rs2server/rs2/model/container/Container.java
+END
